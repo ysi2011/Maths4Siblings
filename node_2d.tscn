@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://6om7vl0711ac"]
+
+[ext_resource type="Script" uid="uid://v68v6ubl06p" path="res://node_2d.gd" id="1_wtcfe"]
+
+[sub_resource type="Theme" id="Theme_wtcfe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e48y"]
+bg_color = Color(0.38831145, 0.72318935, 0.88515395, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 41
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 25.0
+expand_margin_top = 20.0
+expand_margin_right = 25.0
+expand_margin_bottom = 20.0
+
+[node name="Node2D" type="Control" unique_id=16313778]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtcfe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=84139912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0.8603883, 0.6504691, 0.8474755, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=954513630]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -143.0
+offset_top = -217.5
+offset_right = 143.0
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MascotLabel" type="Label" parent="VBoxContainer" unique_id=804481937]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 64
+text = "🦔"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="StreakLabel" type="Label" parent="VBoxContainer" unique_id=1846671038]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 45
+text = "Streak: 0"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=1468060704]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+uppercase = true
+
+[node name="LivesLabel" type="Label" parent="VBoxContainer" unique_id=1752981379]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 45
+text = "❤️❤️❤️"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="QuestionLabel" type="Label" parent="VBoxContainer" unique_id=353234341]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme = SubResource("Theme_wtcfe")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+uppercase = true
+
+[node name="AnswerButtons" type="HBoxContainer" parent="VBoxContainer" unique_id=200118963]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+
+[node name="RestartButton" type="Button" parent="VBoxContainer" unique_id=336528603]
+custom_minimum_size = Vector2(0.28, 0.28)
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 2.17
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_0e48y")
+text = "Play Again 🔁"
+
+[node name="FailSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1325082234]
+
+[node name="Timer" type="Timer" parent="." unique_id=1377586983]
+
+[node name="MemeOverlay" type="Control" parent="." unique_id=1038495134]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MemeOverlay" unique_id=1266831062]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.07450981, 0.07450981, 0.07450981, 0.7058824)
+
+[node name="MemeLabel" type="Label" parent="MemeOverlay" unique_id=533133240]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 51
+text = "FAIL 失败
+no cookies for u"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
